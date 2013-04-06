@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRepMov" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d282b419-0455-4039-8612-6ddf4386ae91">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cuenta" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/fernando/NetBeansProjects/CuentaHogar_6/Informes/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT C1.NOMBRE 'Cuenta', C2.NOMBRE 'Concepto', M.TIPO 'Tipo', M.FECHA 'Fecha', M.IMPORTE 'Importe'
+FROM CUENTAS C1, CUENTAS C2, MOVIMIENTOS M
+WHERE C1.ID_CUENTA = M.ID_CUENTA_G
+AND C2.ID_CUENTA = M.ID_CUENTA_I
+AND C1.NOMBRE = $P{cuenta};]]>
+	</queryString>
+	<field name="Cuenta" class="java.lang.String"/>
+	<field name="Concepto" class="java.lang.String"/>
+	<field name="Tipo" class="java.lang.String"/>
+	<field name="Fecha" class="java.sql.Date"/>
+	<field name="Importe" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement uuid="094745b4-e871-42c1-854d-773cd04404cb" x="72" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9d7c3064-b826-4181-8fb8-7cdb7788b1a8" x="172" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Tipo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="bebe89c2-5c95-4853-a05f-8db43575bf63" x="272" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="6c11eaa7-16d8-41fb-98de-64c6a9bc34d6" x="372" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Importe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

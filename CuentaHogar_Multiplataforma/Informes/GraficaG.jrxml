@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ec8f35b-d9a5-4cf2-9379-e98beed8224d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/fernando/NetBeansProjects/CuentaHogar_6/Informes/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT C.NOMBRE 'Gasto', M.FECHA 'Fecha', (M.IMPORTE) 'Importe'
+FROM CUENTAS C, MOVIMIENTOS M
+WHERE C.ID_CUENTA = M.ID_CUENTA_I
+AND C.TIPO = 'G';]]>
+	</queryString>
+	<field name="Gasto" class="java.lang.String"/>
+	<field name="Fecha" class="java.sql.Date"/>
+	<field name="Importe" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60">
+			<line>
+				<reportElement uuid="d901e3ca-9c5b-491d-aa26-711651d1020e" x="0" y="6" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="d901e3ca-9c5b-491d-aa26-711651d1020e" x="0" y="44" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="bb6962e5-93d6-44ac-a128-60ad6b9fb951" x="97" y="6" width="360" height="38"/>
+				<textElement>
+					<font fontName="Arial" size="32" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAFICA DE GASTOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="24">
+			<staticText>
+				<reportElement uuid="fc0e384d-f72f-446a-aaf3-f47f1edee638" x="127" y="0" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gasto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ce8844f-1c12-4690-b54c-81e4a226407d" x="227" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3cf7e380-4665-437e-9f74-8d59a1fa6083" x="327" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="d901e3ca-9c5b-491d-aa26-711651d1020e" x="109" y="19" width="339" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<textField>
+				<reportElement uuid="be36bb7e-b000-47b8-afc6-f5e86862a46d" x="127" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Gasto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="6c27e0fe-9c39-4e48-b496-2f65c6ea23f6" x="227" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="3af17fed-1a7d-4953-85ca-860907c6f074" x="327" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Importe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="264" splitType="Stretch">
+			<lineChart>
+				<chart>
+					<reportElement uuid="66524987-c21d-41ea-9f5f-13065b87c31f" x="0" y="30" width="555" height="133"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{Gasto}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{Fecha}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{Importe}*-1]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot/>
+				</linePlot>
+			</lineChart>
+			<subreport>
+				<reportElement uuid="ae81533d-950f-460a-9f7a-ec7fe9b52ff6" x="0" y="185" width="555" height="79"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubGraficaG.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

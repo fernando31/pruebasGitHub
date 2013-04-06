@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="item_color">#000829</color>
+    
+    <color name="shadow_splash_color">#FFFFFF</color>
+
+	<color name="ayuda_color">#000000</color>
+	<color name="ayuda_link_color">#000474</color>
+	
+	<color name="listados_header_color">#FFFFFF</color>
+	
+</resources>

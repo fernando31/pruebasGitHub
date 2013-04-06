@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fdcf913f-7113-49b6-975a-e2f4cbf05645">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT C1.NOMBRE 'Cuenta Origen', C2.NOMBRE 'Cuenta Destino', M.FECHA 'Fecha', M.IMPORTE 'Importe' 
+FROM CUENTAS C1, CUENTAS C2, MOVIMIENTOS M 
+WHERE C1.ID_CUENTA = M.ID_CUENTA_G 
+AND C2.ID_CUENTA = M.ID_CUENTA_I 
+AND M.TIPO = 'T' 
+ORDER BY M.FECHA DESC;]]>
+	</queryString>
+	<field name="Cuenta Origen" class="java.lang.String"/>
+	<field name="Cuenta Destino" class="java.lang.String"/>
+	<field name="Fecha" class="java.sql.Date"/>
+	<field name="Importe" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c3ce178c-8570-49d3-91df-0662efeb1d9f" x="66" y="21" width="423" height="38"/>
+				<textElement>
+					<font fontName="Arial" size="32" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESUMEN DE TRASPASOS]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="d901e3ca-9c5b-491d-aa26-711651d1020e" x="0" y="58" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="d901e3ca-9c5b-491d-aa26-711651d1020e" x="0" y="20" width="555" height="1"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="77f41c7c-a86b-4529-afea-80fe86d5f7fe" x="177" y="0" width="135" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta Destino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cb906bdd-7904-4a20-8bf5-50910b81caa2" x="312" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c5b9aa83-44bb-4b8b-96ce-baa8d0e783fb" x="28" y="19" width="508" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="f10bb685-214a-46c7-8617-7db95612f277" x="47" y="0" width="130" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta Origen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="be61475f-fe59-4ef6-8595-ad72bea4f82b" x="412" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement uuid="ba1a1dd8-1f88-4945-9e39-50f4f3f33783" x="412" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Importe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebfc17fc-8174-4272-92e7-d7538927b6bf" x="71" y="0" width="106" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Cuenta Origen}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="5ddc0d6f-5272-423a-8513-142e53b9d555" x="312" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="00174418-bec3-4a30-b0cc-2b46b3f3b715" x="204" y="0" width="108" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Cuenta Destino}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="27" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ae77de63-e3be-406d-a6f9-3df38562ab51" x="10" y="0" width="36" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="8372ebbb-480b-43a5-8098-2b7764c6c009" x="46" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="441eacab-d35e-435c-9815-f9165e3664f3" x="496" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8529d18e-8bdf-4217-ac4f-85249f6e2a19" x="477" y="0" width="19" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="91a6f374-349b-44a9-9884-226d1ea6c4dc" x="435" y="0" width="42" height="20"/>
+				<textElement/>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <string-array name="options_menu">
+		<item>@string/menu_item_gastos</item>
+		<item>@string/menu_item_ingresos</item>
+		<item>@string/menu_item_traspasos</item>
+		<item>@string/menu_item_movimientos</item>
+		<item>@string/menu_item_ayuda</item>
+	</string-array>
+	
+</resources>

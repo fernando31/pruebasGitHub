@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubGraficaG" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="cbf35d12-13e2-4dcb-aea8-e61efddfdf29">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT C.NOMBRE 'Movimiento', SUM((M.IMPORTE*-1)) 'Importe'
+FROM CUENTAS C, MOVIMIENTOS M
+WHERE C.ID_CUENTA = M.ID_CUENTA_I
+AND C.TIPO = 'G'
+GROUP BY C.NOMBRE;]]>
+	</queryString>
+	<field name="Movimiento" class="java.lang.String"/>
+	<field name="Importe" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="259" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement uuid="38be2db0-16c6-4ceb-bc25-8aed51412d41" x="0" y="0" width="555" height="259"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{Movimiento}]]></keyExpression>
+					<valueExpression><![CDATA[$F{Importe}]]></valueExpression>
+					<labelExpression><![CDATA[$F{Movimiento} + " - " + $F{Importe}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

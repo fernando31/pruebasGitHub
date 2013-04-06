@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bkgr"  >
+
+    <RelativeLayout
+        android:id="@+id/Ayuda_RelativeLayout_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        
+		<ImageView
+            android:id="@+id/Ayuda_ImageView_TitleLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/menu_logo" />
+		
+ 		<TextView
+		    android:id="@+id/Ayuda_TextView_Title"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+		    android:gravity="center"
+		    android:text="@string/ayuda_title"
+		    android:textColor="@color/item_color"
+		    android:textSize="@dimen/title_size" />
+        
+        <ImageView
+            android:id="@+id/Ayuda_ImageView_TitleRight"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" 
+            android:src="@drawable/menu_logo"  />
+
+    </RelativeLayout>
+    
+    <ImageView
+        android:id="@+id/Ayuda_ImageView_TitleBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Ayuda_RelativeLayout_Top"
+        android:src="@drawable/menu_logo2" />
+
+    <TextView
+        android:id="@+id/Ayuda_TextView_Text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/Ayuda_ImageView_TitleBottom"
+        android:textColor="@color/ayuda_color"
+        android:textSize="@dimen/ayuda_text_size"
+		android:textStyle="italic"
+        android:textColorLink="@color/ayuda_link_color"
+        android:linksClickable="true"
+        android:autoLink="all"
+        android:isScrollContainer="true"
+        android:scrollbars="vertical"
+        android:drawablePadding="@dimen/ayuda_text_drawable_padding"
+        android:padding="@dimen/ayuda_text_padding"
+        android:fadingEdgeLength="@dimen/ayuda_text_fading" />   
+
+</RelativeLayout>

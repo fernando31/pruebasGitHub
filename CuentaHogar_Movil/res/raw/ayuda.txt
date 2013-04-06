@@ -1,0 +1,16 @@
+CUENTA HOGAR
+
+Cuenta Hogar es una aplicacion realizada como proyecto de la asignatura de Programacion Multimedia y Dispositivos Moviles, del Curso de Formacion Profesional de Tecnico Superior en Desarrollo de Aplicaciones Multiplataforma, Impartido en el Instituto Francesc de Borja Moll. La utilidad que se prentende de dicha aplicacion es el control de la economia domestica
+
+
+INFORMACION ADICIONAL
+
+"Cuenta Hogar" ha sido relizado por el alumno Fernando J. Gonzalez Lopez
+Email: dam1afjgonzalez@gmail.com
+
+
+I.E.S BORJA MOLL
+
+Tel: 971278150
+Pagina Web: http://www.iesfbmoll.com/
+Direccion: C/ Caracas 6  (Poligono de Levante), Palma de Mallorca (Illes Balears)

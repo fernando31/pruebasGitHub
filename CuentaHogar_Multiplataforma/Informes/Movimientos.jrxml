@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6255d69-cf4e-4a58-b7f9-66a875981eba">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/fernando/NetBeansProjects/CuentaHogar_6/Informes/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT NOMBRE 'Cuenta', CAPITAL 'Capital'
+FROM CUENTAS
+WHERE TIPO = 'C';]]>
+	</queryString>
+	<field name="Cuenta" class="java.lang.String"/>
+	<field name="Capital" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c3ce178c-8570-49d3-91df-0662efeb1d9f" x="51" y="17" width="452" height="38"/>
+				<textElement>
+					<font fontName="Arial" size="32" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOVIMIENTOS POR CUENTA]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="d901e3ca-9c5b-491d-aa26-711651d1020e" x="0" y="54" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="d901e3ca-9c5b-491d-aa26-711651d1020e" x="0" y="16" width="555" height="1"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="76" splitType="Stretch">
+			<textField>
+				<reportElement uuid="1ec501bd-c8c4-4b90-a37d-4ce5ab52b29a" x="80" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cuenta}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="83a8b5a0-39f1-43a4-afe1-1a9e07713488" x="455" y="0" width="74" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Capital}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="aecb2981-9323-4e7c-80ab-2df74bcbd986" x="389" y="0" width="66" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Capital:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1b26d9b7-d8fe-4b86-98d4-1b5ef397998d" x="15" y="0" width="65" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="1de65441-2560-4144-921f-0459fb494393" x="0" y="59" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="303f9abe-e3a4-4297-ad01-d4cc372820d8" x="172" y="39" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8a567a90-3919-483d-aee7-24aeb0e9dc8d" x="372" y="39" width="100" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="76325019-be6a-4328-81fb-cbc20170158f" x="72" y="39" width="100" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6dd2dc57-717d-4f95-9363-41d13b3b6b79" x="272" y="39" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="aecb2981-9323-4e7c-80ab-2df74bcbd986" x="529" y="0" width="26" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="8a1a5ee6-99c4-4eb7-a91f-d5ecd9a2ff25" x="0" y="60" width="555" height="11"/>
+				<subreportParameter name="cuenta">
+					<subreportParameterExpression><![CDATA[$F{Cuenta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRepMov.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50">
+			<subreport>
+				<reportElement uuid="bedd0c8f-e8b7-4f42-8d73-02a6716b281e" x="0" y="0" width="555" height="13"/>
+				<subreportParameter name="cuenta">
+					<subreportParameterExpression><![CDATA[$F{Cuenta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRepMov2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="8372ebbb-480b-43a5-8098-2b7764c6c009" x="51" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="441eacab-d35e-435c-9815-f9165e3664f3" x="501" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8529d18e-8bdf-4217-ac4f-85249f6e2a19" x="482" y="0" width="19" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="91a6f374-349b-44a9-9884-226d1ea6c4dc" x="440" y="0" width="42" height="20"/>
+				<textElement/>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ae77de63-e3be-406d-a6f9-3df38562ab51" x="15" y="0" width="36" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkgr"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/SplashTextViewTitle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="top|center"
+        android:shadowColor="@color/shadow_splash_color"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:text="@string/splash_title1"
+        android:textColor="@color/item_color"
+        android:textSize="@dimen/splash_size1"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/SplashTextViewTitle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SplashTextViewTitle1"
+        android:layout_marginTop="-10dp"
+        android:gravity="top|center"
+        android:shadowColor="@color/shadow_splash_color"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:text="@string/splash_title2"
+        android:textColor="@color/item_color"
+        android:textSize="@dimen/splash_size1"
+        android:textStyle="bold|italic" />
+
+    <ImageView
+        android:id="@+id/SplashImageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SplashTextViewTitle2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/splash_logo" />
+
+    <TextView
+        android:id="@+id/SplashTextViewSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/SplashImageView1"
+        android:gravity="top|center"
+        android:text="@string/splash_subtitle"
+        android:textColor="@color/item_color"
+        android:textSize="@dimen/splash_size2"
+        android:textStyle="bold|italic" />
+
+    <ImageView
+        android:id="@+id/SplashImageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/SplashTextViewSubtitle"
+        android:src="@drawable/splash_logo2" />
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <dimen name="title_size">35dp</dimen>
+    
+	<dimen name="splash_size1">48dp</dimen>
+	<dimen name="splash_size2">25dp</dimen>
+	
+	<dimen name="menu_item_size">28dp</dimen>
+	
+	<dimen name="ayuda_text_padding">20dp</dimen>
+	<dimen name="ayuda_text_size">7pt</dimen>
+	<dimen name="ayuda_text_fading">25dp</dimen>
+	<dimen name="ayuda_text_drawable_padding">5dp</dimen>
+	
+	<dimen name="listados_header_size">6pt</dimen>
+	<dimen name="listados_row_size">4pt</dimen>
+	
+	<dimen name="movimiento_item_size">17dp</dimen>
+	<dimen name="movimiento_info_size">12dp</dimen>
+	<dimen name="movimiento_button_size">22dp</dimen>
+	    
+</resources>

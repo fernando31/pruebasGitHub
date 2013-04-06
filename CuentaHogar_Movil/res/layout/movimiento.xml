@@ -1,0 +1,161 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkgr" >
+
+    <RelativeLayout
+        android:id="@+id/Movimiento_RelativeLayout_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        
+		<ImageView
+            android:id="@+id/Movimiento_ImageView_TitleLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/menu_logo" />
+		
+ 		<TextView
+		    android:id="@+id/Movimiento_TextView_Title"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+		    android:gravity="center"
+		    android:text="@string/menu_title"
+		    android:textColor="@color/item_color"
+		    android:textSize="@dimen/title_size" />
+        
+        <ImageView
+            android:id="@+id/Movimiento_ImageView_TitleRight"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" 
+            android:src="@drawable/menu_logo"  />
+    </RelativeLayout>
+    
+    <ImageView
+		android:id="@+id/Movimiento_ImageView_TitleBottom"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/Movimiento_RelativeLayout_Top"
+		android:src="@drawable/menu_logo2" />
+    
+    <ScrollView
+		android:id="@+id/Movimiento_ScrollView_Datos"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/Movimiento_ImageView_TitleBottom"
+		android:isScrollContainer="true"
+		android:scrollbars="vertical" 
+		android:scrollbarAlwaysDrawVerticalTrack="true"	>
+        
+        <RelativeLayout 
+            android:id="@+id/Movimiento_RelativeLayout_Datos"
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent"
+    		android:layout_below="@+id/Movimiento_ScrollView_Datos" >
+		
+		    <TextView
+		        android:id="@+id/Movimiento_TextView_Cuenta"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"	        
+		        android:text="@string/movimiento_cuenta"
+		        android:textColor="@color/item_color"
+		        android:textSize="@dimen/movimiento_item_size" />
+		            
+		    <Spinner
+		        android:id="@+id/Movimiento_Spinner_Cuenta"
+		        android:layout_height="match_parent"
+		        android:layout_width="match_parent"
+		        android:layout_below="@+id/Movimiento_TextView_Cuenta" />
+		    
+		    <TextView
+		        android:id="@+id/Movimiento_TextView_Tipo"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/Movimiento_Spinner_Cuenta"
+		        android:text="@string/menu_title"
+		        android:textColor="@color/item_color"
+		        android:textSize="@dimen/movimiento_item_size" />
+		            
+		    <Spinner
+		        android:id="@+id/Movimiento_Spinner_Tipo"
+		        android:layout_height="match_parent"
+		        android:layout_width="match_parent"
+		        android:layout_below="@+id/Movimiento_TextView_Tipo" />
+		    
+		    <TextView
+		        android:id="@+id/Movimiento_TextView_Importe"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/Movimiento_Spinner_Tipo" 
+		        android:text="@string/movimiento_importe"
+		        android:textColor="@color/item_color"
+		        android:textSize="@dimen/movimiento_item_size" />
+		            
+		    <EditText
+		        android:id="@+id/Movimiento_EditText_Importe"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/Movimiento_TextView_Importe"
+		        android:maxLength="20"
+		        android:maxLines="1"
+		        android:inputType="number" />
+		    
+		    <TextView
+                android:id="@+id/Movimiento_TextView_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Movimiento_EditText_Importe"
+                android:text="@string/movimiento_fecha"
+                android:textColor="@color/item_color"
+                android:textSize="@dimen/movimiento_item_size" />
+            
+            <LinearLayout
+                android:id="@+id/Movmiento_LinearLayout_fecha"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/Movimiento_TextView_fecha"
+                android:orientation="horizontal" >
+                
+                <Button
+                    android:id="@+id/Movimiento_Button_fecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/movimiento_fecha_button"
+                    android:onClick="onClickFechaButton" />
+                
+                <TextView
+                    android:id="@+id/Movimiento_TextView_fecha_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/movimiento_fecha_info"
+                    android:textColor="@color/item_color"
+                    android:textSize="@dimen/movimiento_item_size"
+                    android:gravity="center" />
+            </LinearLayout>
+            
+            <RelativeLayout
+                android:id="@+id/Movmiento_LinearLayout_opciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Movmiento_LinearLayout_fecha"
+                android:layout_marginTop="10dp" >
+
+                <Button
+                    android:id="@+id/Movimiento_Button_Aceptar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/movimiento_aceptar"
+                    android:textSize="@dimen/movimiento_button_size"
+                    android:onClick="onClickAceptarButton" />
+            </RelativeLayout>
+	    </RelativeLayout>   
+    </ScrollView>       
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CuentaHogar</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    
+    <string name="ayuda">Ayuda</string>
+    
+    <string	name="splash_title1">Cuenta</string>
+    <string	name="splash_title2">Hogar</string>
+    <string	name="splash_subtitle">Contabilidad doméstica</string>
+   
+	<string	name="menu_title">Cuenta Hogar</string>
+	<string	name="menu_item_gastos">Gastos</string>
+	<string	name="menu_item_ingresos">Ingresos</string>
+	<string	name="menu_item_traspasos">Traspasos</string>
+	<string	name="menu_item_movimientos">Movimientos</string>
+	<string	name="menu_item_ayuda">Ayuda</string>
+	
+	<string name="ayuda_title">Ayuda</string>
+	
+	<string name="listados_title">Movimientos</string>
+	<string name="listado_gastos">Gastos</string>
+	<string name="listado_ingresos">Ingresos</string>
+	<string name="listado_traspasos">Traspasos</string>
+	
+	<string name="movimiento">Movimiento</string>
+	<string name="movimiento_cuenta">Cuenta:</string>
+	<string name="movimiento_gasto">Tipo de Gasto:</string>
+	<string name="movimiento_ingreso">Tipo de Ingreso:</string>
+	<string name="movimiento_traspaso_origen">Cuenta Origen:</string>
+	<string name="movimiento_traspaso_destino">Cuenta Destino:</string>
+	<string name="movimiento_importe">Importe:</string>
+	<string name="movimiento_fecha">Fecha:</string>
+	<string name="movimiento_fecha_button">Introducir Fecha</string>
+	<string name="movimiento_fecha_info">Fecha no Introducida</string>
+	<string name="movimiento_aceptar">Aceptar</string>
+	<string name="movimiento_cancelar">Cancelar</string>
+	
+</resources>

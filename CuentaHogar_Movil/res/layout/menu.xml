@@ -1,0 +1,71 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkgr" >
+
+    <RelativeLayout
+        android:id="@+id/Menu_RelativeLayout_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        
+		<ImageView
+            android:id="@+id/Menu_ImageView_TitleLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/menu_logo" />
+		
+ 		<TextView
+		    android:id="@+id/Menu_TextView_Title"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+		    android:gravity="center"
+		    android:text="@string/menu_title"
+		    android:textColor="@color/item_color"
+		    android:textSize="@dimen/title_size" />
+        
+        <ImageView
+            android:id="@+id/Menu_ImageView_TitleRight"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" 
+            android:src="@drawable/menu_logo"  />
+
+    </RelativeLayout>
+    
+    <ImageView
+        android:id="@+id/Menu_ImageView_TitleBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Menu_RelativeLayout_Top"
+        android:src="@drawable/menu_logo2" />
+    
+    <ListView
+        android:id="@+id/Menu_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Menu_ImageView_TitleBottom"
+        android:layout_centerHorizontal="true"
+        android:isScrollContainer="true"
+        android:scrollbars="vertical"
+        android:divider="@drawable/divider"
+        android:listSelector="@drawable/selector" />
+
+	<ImageView
+	    android:id="@+id/Menu_ImageView_Bottom"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/Menu_ListView"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:adjustViewBounds="true"
+	    android:scaleType="centerInside"
+	    android:src="@drawable/menu_logo3" />
+    
+</RelativeLayout>
